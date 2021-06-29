@@ -13,9 +13,16 @@ app.get('/', (req, res) => {
   res.render('index', { restaurants: restaurantList.results}) //伺服器得到browser的請求而回應
 })
 
+app.get('/search', (req, res) =>{
+  const keyword = req.query.keyword
+  const restaurants = restaurantList.results.filter(item => { 
+    return item.name.toLowerCase().includes(keyword.toLowerCase()) }
+  )
+  res.render('index', { restaurants: restaurants , keyword: keyword })
+})
+
 app.get('/restaurants/:restaurant', (req, res) =>{
   let id = req.params.restaurant
-  console.log(id)
   let restaurant = restaurantList.results.find(
     item => item.id.toString() === id
   )
