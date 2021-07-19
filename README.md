@@ -1,4 +1,4 @@
-# Restaurant List
+# 餐廳清單
 A simple web application for Restaurant  List
 
 ## Features
